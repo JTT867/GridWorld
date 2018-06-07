@@ -48,7 +48,7 @@ class Env(tk.Tk):
         rectangle = PhotoImage(
             Image.open("img/robot.jpeg").resize((65, 65)))
         triangle = PhotoImage(
-            Image.open("img/bomb.jpg").resize((65, 65)))
+            Image.open("img/bomb.jpeg").resize((65, 65)))
         circle = PhotoImage(
             Image.open("img/gold.jpg").resize((65, 65)))
 
