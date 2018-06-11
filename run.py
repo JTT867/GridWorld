@@ -1,5 +1,5 @@
 from environment import Env
-from New_QLearning import QLearning
+from QLearning import QLearning
 
 
 if __name__=="__main__":
