@@ -14,7 +14,6 @@ class QLearning:
         if np.random.uniform() > self.epsilon:
             # choose best action according to q-table
             action_values = self.q_table[state]
-            print("action_values", action_values)
             argmax_actions = []    # the best actions may not be one, should randomly choose the next action
             for i in range(len(action_values)):
                 if action_values[i] == np.max(action_values):
@@ -23,7 +22,10 @@ class QLearning:
             # randomly choose an action from action base
         else:
             next_action = np.random.choice(self.actions)
-        self.epsilon -= 0.0005    # reduce epsilon to stop the agent from exploring after several steps
+        if self.epsilon > 0 :
+            self.epsilon -= 0.00001    # reduce epsilon to stop the agent from exploring after several steps
+            if self.epsilon < 0:
+                self.epsilon = 0
         return next_action
 
     def learn(self, current_state, current_action, reward, next_state):
@@ -35,3 +37,4 @@ class QLearning:
         # current_q = self.q_table[current_state][current_action]
         # new_q = reward + self.gamma * max(self.q_table[next_state])
         # self.q_table[current_state][current_action] = (1-lr) * old_q + lr * new_q
+
